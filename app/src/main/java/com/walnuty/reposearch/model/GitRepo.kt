@@ -5,8 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class GitRepo(
-    val repoId: Int,
-    val userId: Int,
+    val repoId: String,
+    val userId: String,
     val userName:String,
     val repoName: String,
     val repoDesc: String,
