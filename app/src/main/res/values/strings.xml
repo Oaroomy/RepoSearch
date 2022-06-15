@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RepoSearch</string>
+    <string name="test_search_repos">search repos...</string>
+    <string name="text_search">searach</string>
 </resources>
