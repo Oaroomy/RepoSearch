@@ -1,19 +1,15 @@
 package com.walnuty.reposearch.ui.view
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.walnuty.reposearch.R
 import com.walnuty.reposearch.databinding.ActivityMainBinding
 import com.walnuty.reposearch.ui.adapter.RepoAdapter
 import com.walnuty.reposearch.ui.viewmodel.MainViewModel
-import kotlinx.coroutines.coroutineScope
-import okhttp3.Dispatcher
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,13 +28,13 @@ class MainActivity : AppCompatActivity() {
         val repoAdapter = RepoAdapter(viewModel)
         binding.listRepo.adapter = repoAdapter
         viewModel.repos.observe(this) {
-            binding.progressCircular.isVisible = false
+            viewModel.isPrgress.value = false
             repoAdapter.notifyDataSetChanged()
         }
 
-        viewModel.searchKeyword.observe(this) { keyword ->
-            binding.progressCircular.isVisible = true
-            viewModel.search(keyword)
+        viewModel.isEmptyKeyword.observe(this) {
+            Toast.makeText(this, resources.getString(R.string.message_empty_keyword), Toast.LENGTH_SHORT).show()
         }
+
     }
 }

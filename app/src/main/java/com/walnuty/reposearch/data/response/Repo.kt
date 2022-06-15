@@ -14,7 +14,7 @@ data class Repo(
     @SerializedName("full_name")
     val repoName: String,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("owner")
     val repoOwner: RepoOwner
 ) : Parcelable
