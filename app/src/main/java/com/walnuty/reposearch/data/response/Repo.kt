@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Repo(
     @SerializedName("node_id")
-    val nodeId: Int,
+    val nodeId: String,
     @SerializedName("avatar_url")
     val profileUrl: String,
     @SerializedName("full_name")
@@ -22,7 +22,7 @@ data class Repo(
 @Parcelize
 data class RepoOwner(
     @SerializedName("node_id")
-    val nodeId: Int,
+    val nodeId: String,
     @SerializedName("avatar_url")
     val profileUrl: String,
     @SerializedName("login")

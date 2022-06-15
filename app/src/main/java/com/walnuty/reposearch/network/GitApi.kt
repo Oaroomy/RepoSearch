@@ -2,6 +2,7 @@ package com.walnuty.reposearch.network
 
 import com.walnuty.reposearch.common.ShareData
 import com.walnuty.reposearch.data.response.ResponseRepos
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,17 +14,28 @@ interface GitApi {
 
     @GET("repositories")
     suspend fun searchRepositoryByKeyword(
-        @Query("keyword") keyword: String
+        @Query("q") keyword: String
     ): ResponseRepos
 
     companion object {
         private val BASE_URL = ShareData.BASE_URL
         fun create(): GitApi {
             val logger = HttpLoggingInterceptor()
-            logger.level = HttpLoggingInterceptor.Level.BASIC
+            logger.level = HttpLoggingInterceptor.Level.BODY
+
+            val headerInterceptor = Interceptor {
+                val request = it.request()
+                    .newBuilder()
+                    .header("Accept", "application/json")
+                    .header("Content-type", "application/json")
+                    .build()
+
+                return@Interceptor it.proceed(request)
+            }
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)
+                .addInterceptor(headerInterceptor)
                 .build()
 
             return Retrofit.Builder()
