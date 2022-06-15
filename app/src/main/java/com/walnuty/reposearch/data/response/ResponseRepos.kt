@@ -17,7 +17,7 @@ fun ResponseRepos.asLocalModel(): List<GitRepo> {
         GitRepo(
             repoId = repo.nodeId,
             repoName = repo.repoName,
-            repoDesc = repo.description,
+            repoDesc = repo.description?:"",
             userId = repo.repoOwner.nodeId,
             userName = repo.repoOwner.userId,
             userProfile = repo.repoOwner.profileUrl
