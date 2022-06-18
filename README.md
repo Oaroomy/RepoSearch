@@ -18,9 +18,7 @@
 
    
 ## 아키텍쳐 설게
-![스크린샷 2022-06-19 오전 5 33 23](https://user-images.githubusercontent.com/45578591/174456391-906a192e-62c8-4b6c-a718-eb22e3b10160.png)
-  
-  
+<img src="https://user-images.githubusercontent.com/45578591/174456391-906a192e-62c8-4b6c-a718-eb22e3b10160.png"  width="600" height="600"/>
   
   
 ## 프로젝트 구조
