@@ -17,7 +17,7 @@
 
 
    
-## 아키텍쳐 설게
+## 아키텍쳐
 <img src="https://user-images.githubusercontent.com/45578591/174456391-906a192e-62c8-4b6c-a718-eb22e3b10160.png"  width="600" height="600"/>
   
   
