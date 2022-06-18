@@ -3,5 +3,5 @@
     <string name="test_search_repos">search repos...</string>
     <string name="text_search">searach</string>
     <string name="message_empty_keyword">검색어가 없습니다. 검색어를 입력해주세요.</string>
-    <string name="message_empty_result">검색 결과가 없습니다. \n 검색어를 입력해주세요.</string>
+    <string name="message_empty_result">검색 결과가 없습니다.\n검색어를 입력해주세요.</string>
 </resources>

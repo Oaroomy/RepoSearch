@@ -14,7 +14,9 @@ interface GitApi {
 
     @GET("repositories")
     suspend fun searchRepositoryByKeyword(
-        @Query("q") keyword: String
+        @Query("q") keyword: String,
+        @Query("page") page: Int,
+        @Query("per_page") itemsPerPage: Int
     ): ResponseRepos
 
     companion object {
