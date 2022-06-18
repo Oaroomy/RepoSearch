@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.walnuty.reposearch.ui.viewmodel.MainViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view.MainActivity">
+
+        <EditText
+            android:id="@+id/edit_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/test_search_repos"
+            app:layout_constraintEnd_toStartOf="@id/btn_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/text_search"
+            android:onClick="@{() -> vm.clickedSearchButton(editSearch.getText().toString())}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_repo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_search"
+            tools:listitem="@layout/inflate_repo_item" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.isProgress == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="@id/list_repo"
+            app:layout_constraintBottom_toBottomOf="@id/list_repo"
+            app:layout_constraintStart_toStartOf="@id/list_repo"
+            app:layout_constraintEnd_toEndOf="@id/list_repo"/>
+
+        <TextView
+            android:id="@+id/text_no_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message_empty_result"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="@id/list_repo"
+            app:layout_constraintBottom_toBottomOf="@id/list_repo"
+            app:layout_constraintStart_toStartOf="@id/list_repo"
+            app:layout_constraintEnd_toEndOf="@id/list_repo"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
