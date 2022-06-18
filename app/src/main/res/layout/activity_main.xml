@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:text="@string/text_search"
-            android:onClick="@{() -> vm.search(editSearch.getText().toString())}"
+            android:onClick="@{() -> vm.clickedSearchButton(editSearch.getText().toString())}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/edit_search" />
 
@@ -56,7 +56,7 @@
             android:id="@+id/progress_circular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{vm.isPrgress == true ? View.VISIBLE : View.GONE}"
+            android:visibility="@{vm.isProgress == true ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toTopOf="@id/list_repo"
             app:layout_constraintBottom_toBottomOf="@id/list_repo"
             app:layout_constraintStart_toStartOf="@id/list_repo"
@@ -68,7 +68,6 @@
             android:layout_height="wrap_content"
             android:text="@string/message_empty_result"
             android:gravity="center"
-            android:visibility="@{vm.repos.size() > 0 ? View.GONE : View.VISIBLE}"
             app:layout_constraintTop_toTopOf="@id/list_repo"
             app:layout_constraintBottom_toBottomOf="@id/list_repo"
             app:layout_constraintStart_toStartOf="@id/list_repo"
